@@ -1,26 +1,32 @@
+
 {
-    "name": "mnikoei/laravel-keycloak-admin",
-    "description": "This package supports Keycloak admin client api`s",
+    "name": "marionassef/laravel-keycloak-admin-rest-api",
+    "type": "library",
+    "license": "MIT",
+    "description": "laravel keycloak admin rest api",
+    "keywords": ["Laravel","Keycloak","admin"],
+    "homepage": "https://github.com/marionassef/laravel-keycloak-admin-rest-api",
+    "authors": [
+        {
+            "name": "Mario Nassef",
+            "email": "developer.mario.nassef@gmail.com"
+        }
+    ],
     "require": {
         "guzzlehttp/guzzle": "*"
     },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "mnikoei",
-            "email": "mohsen.nikoei@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "autoload" : {
-        "psr-4" : {
-            "Mnikoei\\": "src/"
-        }
+    "autoload": {
+        "psr-4": {
+            "laravel-keycloak-admin-rest-api\\": "src"
+        },
+        "classmap": [
+            "tests"
+        ]
     },
-    "extra" : {
-        "laravel" : {
-            "providers" : [
-                "Mnikoei\\KeycloakAdminServiceProvider"
+    "extra": {
+        "laravel": {
+            "providers": [
+                "laravel-keycloak-admin-rest-api\\LaravelCrudGeneratorServiceProvider"
             ]
         }
     }
