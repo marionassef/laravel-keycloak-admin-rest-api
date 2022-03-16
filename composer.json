@@ -1,0 +1,30 @@
+{
+    "name": "marionassef/laravel-keycloak-admin-rest-api",
+    "description": "This package supports Keycloak admin client api`s",
+    "require": {
+        "guzzlehttp/guzzle": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mnikoei",
+            "email": "mohsen.nikoei@gmail.com"
+        },
+        {
+            "name": "marionassef",
+            "email": "developer.mario.nassef@gmail.com"
+        }
+    ],
+    "autoload" : {
+        "psr-4" : {
+            "marionassef\\": "src/"
+        }
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "marionassef\\KeycloakAdminServiceProvider"
+            ]
+        }
+    }
+}
