@@ -1,8 +1,8 @@
 <?php
 
-namespace Mnikoei\Services;
+namespace laravelKeycloakAdminRestApi\Services;
 
-use Mnikoei\Auth\ClientAuthService;
+use laravelKeycloakAdminRestApi\Auth\ClientAuthService;
 use GuzzleHttp\ClientInterface;
 use Illuminate\Support\Arr;
 

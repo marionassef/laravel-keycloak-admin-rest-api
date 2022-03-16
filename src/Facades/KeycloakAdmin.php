@@ -1,6 +1,6 @@
 <?php
 
-namespace Mnikoei\Facades;
+namespace laravelKeycloakAdminRestApi\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

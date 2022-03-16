@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Mnikoei\Services;
+namespace laravelKeycloakAdminRestApi\Services;
 
 
 use GuzzleHttp\ClientInterface;
 use Illuminate\Support\Arr;
-use Mnikoei\Auth\ClientAuthService;
+use laravelKeycloakAdminRestApi\Auth\ClientAuthService;
 
 abstract class Service
 {

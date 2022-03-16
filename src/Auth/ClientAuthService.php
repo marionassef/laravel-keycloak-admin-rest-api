@@ -1,6 +1,6 @@
 <?php
 
-namespace Mnikoei\Auth;
+namespace laravelKeycloakAdminRestApi\Auth;
 
 
 use GuzzleHttp\Client;

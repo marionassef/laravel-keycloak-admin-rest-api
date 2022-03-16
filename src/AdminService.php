@@ -1,14 +1,14 @@
 <?php
 
-namespace Mnikoei;
+namespace laravelKeycloakAdminRestApi;
 
-use Mnikoei\Auth\ClientAuthService;
+use laravelKeycloakAdminRestApi\Auth\ClientAuthService;
 use GuzzleHttp\Client as HttpClient;
 use Illuminate\Http\Request;
-use Mnikoei\Services\Client;
-use Mnikoei\Services\ClientRole;
-use Mnikoei\Services\Role;
-use Mnikoei\Services\User;
+use laravelKeycloakAdminRestApi\Services\Client;
+use laravelKeycloakAdminRestApi\Services\ClientRole;
+use laravelKeycloakAdminRestApi\Services\Role;
+use laravelKeycloakAdminRestApi\Services\User;
 
 class AdminService
 {
