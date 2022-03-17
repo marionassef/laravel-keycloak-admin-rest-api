@@ -76,7 +76,7 @@ abstract class Service
         }
 
         if (isset($values['query'])){
-            $api .= $api . '?' . http_build_query($values['query']);
+            $api = $api . '?' . http_build_query($values['query']);
         }
 
         return [$api ,$this->api[$apiName]['method']];
