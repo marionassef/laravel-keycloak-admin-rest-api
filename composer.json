@@ -16,13 +16,13 @@
     },
     "autoload": {
         "psr-4": {
-            "marionassef\\laravelKeycloakAdminRestApi\\": "src"
+            "marionassef\\laravel-keycloak-admin-rest-api\\": "src"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "marionassef\\laravelKeycloakAdminRestApi\\KeycloakAdminServiceProvider"
+                "marionassef\\laravel-keycloak-admin-rest-api\\KeycloakAdminServiceProvider"
             ]
         }
     }
