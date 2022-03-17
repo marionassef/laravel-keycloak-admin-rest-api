@@ -1,4 +1,3 @@
-
 {
     "name": "marionassef/laravel-keycloak-admin-rest-api",
     "type": "library",
@@ -18,10 +17,7 @@
     "autoload": {
         "psr-4": {
             "marionassef\\laravelKeycloakAdminRestApi\\": "src"
-        },
-        "classmap": [
-            "tests"
-        ]
+        }
     },
     "extra": {
         "laravel": {
