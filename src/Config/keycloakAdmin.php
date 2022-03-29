@@ -56,6 +56,10 @@ return [
                 'api' => "{$baseUrl}/clients/{id}/roles/{role}" ,
                 'method' => 'get'
             ],
+            'composites' => [
+                'api' => "{$baseUrl}/clients/{id}/roles/{role}/composites" ,
+                'method' => 'post'
+            ],
             'update' => [
                 'update' => "{$baseUrl}/clients/{id}/roles/{role}" ,
                 'method' => 'post'
@@ -138,6 +142,10 @@ return [
             'getEffectiveRealmRoles' => [
                 'api' => "{$baseUrl}/users/{id}/role-mappings/realm/composite" ,
                 'method' => 'get'
+            ],
+            'addClientRole' => [
+                'api' => "{$baseUrl}/users/{id}/role-mappings/clients/{client_id}" ,
+                'method' => 'post'
             ],
         ],
 

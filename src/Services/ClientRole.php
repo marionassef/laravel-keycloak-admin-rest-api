@@ -32,6 +32,7 @@ class ClientRole extends Service
             $url = current($location) ;
 
             return $this->getByName([
+                'id' => substr( $url , strrpos( $url , 'clients/') + 8, 36 ),
                 'role' => substr( $url , strrpos( $url , '/') + 1 )
             ]);
         }
