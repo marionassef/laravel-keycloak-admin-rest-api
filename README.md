@@ -24,7 +24,9 @@ KEYCLOAK_REALM=
 
 KEYCLOAK_REALM_PUBLIC_KEY=     # realm settings -> keys 
 
-KEYCLOAK_CLIENT_ID=            
+KEYCLOAK_CLIENT_ID=  
+          
+KEYCLOAK_CLIENT_UUID=            
 
 KEYCLOAK_CLIENT_SECRET=        # clients -> your_client -> credentials 
 
