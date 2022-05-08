@@ -8,8 +8,8 @@ $baseUrl = env(
 return [
 
     'client' => [
-        'id' => env('KEYCLOAK_CLIENT_ID') ,
-        'secret' => env('KEYCLOAK_CLIENT_SECRET')
+        'id' => env('KEYCLOAK_ADMIN_CLIENT_ID') ,
+        'secret' => env('KEYCLOAK_ADMIN_CLIENT_SECRET')
     ],
 
     'api' => [
