@@ -51,13 +51,28 @@ abstract class Service
      */
     public function createOptions(array $params = null) : array
     {
-        return  [
+        $options = [
             'headers' => [
                 'Content-Type' => 'application/json',
-                'Authorization' => 'Bearer ' . $this->auth->getToken()
+                'Authorization' => 'Bearer ' . $this->auth->getToken(),
             ],
-            'json' => $params['body'] ?? null,
         ];
+
+        // Optional body for POST/PUT
+        if (!empty($params['body'])) {
+            $options['json'] = $params['body'];
+        }
+
+        if (isset($params['search'])) {
+            $options['query'] = ['search' => $params['search']];
+        }
+
+        // Or: if already passed 'query' key, honor it
+        if (isset($params['query']) && is_array($params['query'])) {
+            $options['query'] = $params['query'];
+        }
+
+        return $options;
     }
 
     public function getApi($apiName, $values)
