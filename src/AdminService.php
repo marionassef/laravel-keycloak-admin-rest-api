@@ -7,6 +7,7 @@ use GuzzleHttp\Client as HttpClient;
 use Illuminate\Http\Request;
 use laravelKeycloakAdminRestApi\Services\Client;
 use laravelKeycloakAdminRestApi\Services\ClientRole;
+use laravelKeycloakAdminRestApi\Services\GroupService;
 use laravelKeycloakAdminRestApi\Services\Role;
 use laravelKeycloakAdminRestApi\Services\User;
 
@@ -32,6 +33,7 @@ class AdminService
            'Role' => Role::class,
            'Client' => Client::class,
            'ClientRole' => ClientRole::class,
+           'Group' => GroupService::class,
         ];
     }
 
@@ -53,5 +55,10 @@ class AdminService
     public function clientRole()
     {
         return $this->getService('ClientRole');
+    }
+
+    public function group()
+    {
+        return $this->getService('Group');
     }
 }
