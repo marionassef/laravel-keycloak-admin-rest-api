@@ -192,7 +192,7 @@ return [
                 'method' => 'get'
             ],
             'get' => [
-                'api' => "{$baseUrl}/groups-by-id/{id}",
+                'api' => "{$baseUrl}/groups/{id}",
                 'method' => 'get'
             ],
             'getByName' => [
@@ -200,7 +200,7 @@ return [
                 'method' => 'get'
             ],
             'update' => [
-                'api' => "{$baseUrl}/groups-by-id/{id}",
+                'api' => "{$baseUrl}/groups/{id}",
                 'method' => 'put'
             ],
             'updateByName' => [
@@ -212,7 +212,7 @@ return [
                 'method' => 'get'
             ],
             'delete' => [
-                'api' => "{$baseUrl}/groups-by-id/{id}",
+                'api' => "{$baseUrl}/groups/{id}",
                 'method' => 'delete'
             ],
             'deleteByName' => [
