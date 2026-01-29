@@ -10,10 +10,13 @@ use laravelKeycloakAdminRestApi\Services\ClientRole;
 use laravelKeycloakAdminRestApi\Services\GroupService;
 use laravelKeycloakAdminRestApi\Services\Role;
 use laravelKeycloakAdminRestApi\Services\User;
+use laravelKeycloakAdminRestApi\Services\Organization;
 
 class AdminService
 {
     protected $container = [];
+
+    protected $auth;
 
     function __construct(ClientAuthService $auth) {
 
@@ -34,6 +37,7 @@ class AdminService
            'Client' => Client::class,
            'ClientRole' => ClientRole::class,
            'Group' => GroupService::class,
+           'Organization' => Organization::class,
         ];
     }
 
@@ -60,5 +64,10 @@ class AdminService
     public function group()
     {
         return $this->getService('Group');
+    }
+
+    public function organization()
+    {
+        return $this->getService('Organization');
     }
 }

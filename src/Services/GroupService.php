@@ -35,13 +35,13 @@ class GroupService extends Service
     public function addUser(array $options)
     {
         $this->validate($options, ['user_id', 'group_id']);
-        return $this->__call('addUser', $options);
+        return $this->__call('addUser', [$options]);
     }
 
     public function removeUser(array $options)
     {
         $this->validate($options, ['user_id', 'group_id']);
-        return $this->__call('removeUser', $options);
+        return $this->__call('removeUser', [$options]);
     }
 
     public function search(array $options)
@@ -49,7 +49,7 @@ class GroupService extends Service
         $this->validate($options, ['name']);
 
         return $this->__call('search', [
-            'query' => ['search' => $options['name']]
+            ['query' => ['search' => $options['name']]]
         ]);
     }
 

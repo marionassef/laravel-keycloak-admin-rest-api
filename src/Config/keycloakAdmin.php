@@ -60,11 +60,11 @@ return [
                 'method' => 'post'
             ],
             'update' => [
-                'update' => "{$baseUrl}/clients/{id}/roles/{role}",
-                'method' => 'post'
+                'api' => "{$baseUrl}/clients/{id}/roles/{role}",
+                'method' => 'put'
             ],
             'delete' => [
-                'update' => "{$baseUrl}/clients/{id}/roles/{role}",
+                'api' => "{$baseUrl}/clients/{id}/roles/{role}",
                 'method' => 'delete'
             ],
 
@@ -230,6 +230,61 @@ return [
             'search' => [
                 'api' => "{$baseUrl}/groups",
                 'method' => 'GET',
+            ],
+        ],
+
+        'organization' => [
+            'create' => [
+                'api' => "{$baseUrl}/organizations",
+                'method' => 'post'
+            ],
+            'all' => [
+                'api' => "{$baseUrl}/organizations",
+                'method' => 'get'
+            ],
+            'get' => [
+                'api' => "{$baseUrl}/organizations/{id}",
+                'method' => 'get'
+            ],
+            'update' => [
+                'api' => "{$baseUrl}/organizations/{id}",
+                'method' => 'put'
+            ],
+            'delete' => [
+                'api' => "{$baseUrl}/organizations/{id}",
+                'method' => 'delete'
+            ],
+            'getMembers' => [
+                'api' => "{$baseUrl}/organizations/{id}/members",
+                'method' => 'get'
+            ],
+            'addMember' => [
+                'api' => "{$baseUrl}/organizations/{id}/members/{userId}",
+                'method' => 'put'
+            ],
+            'removeMember' => [
+                'api' => "{$baseUrl}/organizations/{id}/members/{userId}",
+                'method' => 'delete'
+            ],
+            'inviteUser' => [
+                'api' => "{$baseUrl}/organizations/{id}/members/invite-user",
+                'method' => 'post'
+            ],
+            'getIdentityProviders' => [
+                'api' => "{$baseUrl}/organizations/{id}/identity-providers",
+                'method' => 'get'
+            ],
+            'linkIdentityProvider' => [
+                'api' => "{$baseUrl}/organizations/{id}/identity-providers/{alias}",
+                'method' => 'post'
+            ],
+            'unlinkIdentityProvider' => [
+                'api' => "{$baseUrl}/organizations/{id}/identity-providers/{alias}",
+                'method' => 'delete'
+            ],
+            'getUserOrganizations' => [
+                'api' => "{$baseUrl}/users/{userId}/organizations",
+                'method' => 'get'
             ],
         ]
     ]

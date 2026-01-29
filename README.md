@@ -59,6 +59,8 @@ Package has provided services as below:
 * role
 * client
 * clientRole
+* group
+* organization
 
 
 
@@ -107,5 +109,96 @@ keycloakAdmin::role()->get([
 
 ]);
 ```
+
+#### Organization API Examples:
+
+```php
+// Create an organization
+KeycloakAdmin::organization()->create([
+    'body' => [
+        'name' => 'My Organization',
+        'alias' => 'my-org',
+        'enabled' => true,
+        'domains' => ['example.com']
+    ]
+]);
+
+// Get all organizations
+KeycloakAdmin::organization()->all();
+
+// Search organizations by name
+KeycloakAdmin::organization()->search([
+    'search' => 'org-name'
+]);
+
+// Get organization by ID
+KeycloakAdmin::organization()->get([
+    'id' => 'organization-uuid'
+]);
+
+// Update organization
+KeycloakAdmin::organization()->update([
+    'id' => 'organization-uuid',
+    'body' => [
+        'name' => 'Updated Organization Name'
+    ]
+]);
+
+// Delete organization
+KeycloakAdmin::organization()->delete([
+    'id' => 'organization-uuid'
+]);
+
+// Get organization members
+KeycloakAdmin::organization()->getMembers([
+    'id' => 'organization-uuid'
+]);
+
+// Add member to organization
+KeycloakAdmin::organization()->addMember([
+    'id' => 'organization-uuid',
+    'userId' => 'user-uuid'
+]);
+
+// Remove member from organization
+KeycloakAdmin::organization()->removeMember([
+    'id' => 'organization-uuid',
+    'userId' => 'user-uuid'
+]);
+
+// Invite user to organization
+KeycloakAdmin::organization()->inviteUser([
+    'id' => 'organization-uuid',
+    'body' => [
+        'email' => 'user@example.com',
+        'firstName' => 'John',
+        'lastName' => 'Doe'
+    ]
+]);
+
+// Get organization identity providers
+KeycloakAdmin::organization()->getIdentityProviders([
+    'id' => 'organization-uuid'
+]);
+
+// Link identity provider to organization
+KeycloakAdmin::organization()->linkIdentityProvider([
+    'id' => 'organization-uuid',
+    'alias' => 'idp-alias'
+]);
+
+// Unlink identity provider from organization
+KeycloakAdmin::organization()->unlinkIdentityProvider([
+    'id' => 'organization-uuid',
+    'alias' => 'idp-alias'
+]);
+
+// Get organizations for a user
+KeycloakAdmin::organization()->getUserOrganizations([
+    'userId' => 'user-uuid'
+]);
+```
+
+> **Note:** Organization APIs require Keycloak 24+ with organizations feature enabled.
 
 All other api calls are same as examples just needs to provide required parameters as described in https://www.keycloak.org/docs-api/7.0/rest-api/index.html
