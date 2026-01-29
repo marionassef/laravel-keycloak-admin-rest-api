@@ -12,12 +12,28 @@
         }
     ],
     "require": {
-        "guzzlehttp/guzzle": "*"
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "illuminate/support": "^9.0|^10.0|^11.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0|^11.0",
+        "mockery/mockery": "^1.6",
+        "orchestra/testbench": "^8.0|^9.0"
     },
     "autoload": {
         "psr-4": {
             "laravelKeycloakAdminRestApi\\": "src"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "laravelKeycloakAdminRestApi\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-html coverage"
     },
     "extra": {
         "laravel": {

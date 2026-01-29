@@ -35,7 +35,7 @@ class Client extends Service
 
     /**
      * @param $response
-     * @return bool
+     * @return array|bool
      */
     public function response($response)
     {
@@ -43,8 +43,8 @@ class Client extends Service
 
             $url = current($location) ;
 
-            return $this->getByName([
-                'role' => substr( $url , strrpos( $url , '/') + 1 )
+            return $this->get([
+                'id' => substr( $url , strrpos( $url , '/') + 1 )
             ]);
         }
 

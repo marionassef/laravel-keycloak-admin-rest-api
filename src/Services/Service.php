@@ -90,10 +90,7 @@ abstract class Service
             }
         }
 
-        if (isset($values['query'])){
-            $api = $api . '?' . http_build_query($values['query']);
-        }
-
+        // Query params are handled in createOptions(), not here to avoid duplication
         return [$api ,$this->api[$apiName]['method']];
     }
 }

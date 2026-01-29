@@ -8,6 +8,17 @@ use Illuminate\Support\Facades\Cache;
 
 class ClientAuthService
 {
+    /**
+     * Cache key for storing admin credentials
+     */
+    protected const CACHE_KEY = 'keycloak-admin-credentials';
+
+    /**
+     * Legacy cache key (for backward compatibility)
+     * @deprecated Will be removed in v3.0
+     */
+    protected const LEGACY_CACHE_KEY = 'keycload-admin-credentials';
+
     protected $client;
 
     public function __construct()
@@ -30,8 +41,18 @@ class ClientAuthService
     {
         $api = config('keycloakAdmin.api.client.token');
 
-        if (Cache::has('keycload-admin-credentials')) {
-            return Cache::get('keycload-admin-credentials');
+        // Check new cache key first, then legacy key for backward compatibility
+        if (Cache::has(self::CACHE_KEY)) {
+            return Cache::get(self::CACHE_KEY);
+        }
+
+        // Backward compatibility: check legacy cache key and migrate if found
+        if (Cache::has(self::LEGACY_CACHE_KEY)) {
+            $credentials = Cache::get(self::LEGACY_CACHE_KEY);
+            // Migrate to new cache key
+            Cache::put(self::CACHE_KEY, $credentials, $credentials['expires_in'] ?? 300);
+            Cache::forget(self::LEGACY_CACHE_KEY);
+            return $credentials;
         }
 
         $response = $this->client->post($api, $this->getOptions());
@@ -39,7 +60,7 @@ class ClientAuthService
         $credentials = json_decode($response->getBody()->getContents(),true);
 
         return tap($credentials, function ($credentials) {
-            Cache::put('keycload-admin-credentials', $credentials, $credentials['expires_in']);
+            Cache::put(self::CACHE_KEY, $credentials, $credentials['expires_in']);
         });
     }
 
